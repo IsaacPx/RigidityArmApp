@@ -13,12 +13,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private static final String TAG = "MainActivity";
 
     BluetoothAdapter mBluetoothAdapter;
@@ -110,11 +111,40 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+
+            if (action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
+                BluetoothDevice mDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                //3 cases:
+                //case 1: bonded already
+                if (mDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
+                    Log.d(TAG, "BroadcastReceiver: BOND_BONDED.");
+                }
+                //case 2: creating a bond
+                if (mDevice.getBondState() == BluetoothDevice.BOND_BONDING) {
+                    Log.d(TAG, "BroadcastReceiver: BOND_BONDING.");
+                }
+                //case 3: breaking a bond
+                if (mDevice.getBondState() == BluetoothDevice.BOND_NONE) {
+                    Log.d(TAG, "BroadcastReceiver: BOND_NONE.");
+                }
+
+            }
+        }
+    };
+
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver1);
+        unregisterReceiver(mBroadcastReceiver2);
+        unregisterReceiver(mBroadcastReceiver3);
+        unregisterReceiver(mBroadcastReceiver4);
+        //mBluetoothAdapter.cancelDiscovery();
     }
 
     @Override
@@ -126,14 +156,17 @@ public class MainActivity extends AppCompatActivity {
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
         mBTDevices = new ArrayList<>();
 
+        //Broadcasts when bond state changes (ie:pairing)
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        registerReceiver(mBroadcastReceiver4, filter);
+
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        btnONOFF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: enabling/disabling bluetooth.");
-                enableDisableBT();
-            }
+        lvNewDevices.setOnItemClickListener(MainActivity.this);
+
+        btnONOFF.setOnClickListener(v -> {
+            Log.d(TAG, "onClick: enabling/disabling bluetooth.");
+            enableDisableBT();
         });
     }
 
@@ -175,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
 
         if (mBluetoothAdapter.isDiscovering()) {
+            mBluetoothAdapter.cancelDiscovery();
             Log.d(TAG, "btnDiscover: Canceling discovery.");
 
             //check BT permission in manifest
@@ -212,6 +246,26 @@ public class MainActivity extends AppCompatActivity {
             }
         } else {
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //first cancel discovery because it's very memory intensive.
+        mBluetoothAdapter.cancelDiscovery();
+
+        Log.d(TAG, "onItemClick: You Clicked on a device.");
+        String deviceName = mBTDevices.get(position).getName();
+        String deviceAddress = mBTDevices.get(position).getAddress();
+
+        Log.d(TAG, "onItemClick: deviceName = " + deviceName);
+        Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
+
+        //create the bond.
+        //NOTE: Requires API 17+? I think this is JellyBean
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            Log.d(TAG, "Trying to pair with " + deviceName);
+            mBTDevices.get(position).createBond();
         }
     }
 }

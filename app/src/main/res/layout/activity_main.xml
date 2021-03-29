@@ -22,14 +22,14 @@
         android:id="@+id/btnDiscoverable_on_off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enable Discoverable"
         android:onClick="btnEnableDisable_Discoverable"
-        app:layout_constraintBottom_toBottomOf="@+id/btnDiscover"
+        android:text="Enable Discoverable"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindUnpairedDevices"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnDiscover" />
+        app:layout_constraintTop_toTopOf="@+id/btnFindUnpairedDevices" />
 
     <Button
-        android:id="@+id/btnDiscover"
+        android:id="@+id/btnFindUnpairedDevices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Discover"
@@ -46,8 +46,7 @@
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDiscover" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

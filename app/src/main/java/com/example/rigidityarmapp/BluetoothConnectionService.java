@@ -64,7 +64,7 @@ public class BluetoothConnectionService {
 
             //look for in 3rd video
             if(socket != null) {
-                connected(socket, mmDevice);
+                //connected(socket, mmDevice);
             }
 
             Log.i(TAG, "END mAcceptThread");

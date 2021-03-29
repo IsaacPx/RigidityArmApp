@@ -13,10 +13,10 @@
         android:text="ON/OFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <Button
         android:id="@+id/btnDiscoverable_on_off"
@@ -24,8 +24,30 @@
         android:layout_height="wrap_content"
         android:text="Enable Discoverable"
         android:onClick="btnEnableDisable_Discoverable"
-        app:layout_constraintBottom_toBottomOf="@+id/btnONOFF"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDiscover"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnDiscover" />
+
+    <Button
+        android:id="@+id/btnDiscover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Discover"
+        android:onClick="btnDiscover"
+        app:layout_constraintBottom_toBottomOf="@+id/btnONOFF"
+        app:layout_constraintEnd_toStartOf="@+id/btnDiscoverable_on_off"
         app:layout_constraintStart_toEndOf="@+id/btnONOFF"
         app:layout_constraintTop_toTopOf="@+id/btnONOFF" />
+
+    <ListView
+        android:layout_below="@id/btnFindUnpairedDevices"
+        android:id="@+id/lvNewDevices"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDiscover" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

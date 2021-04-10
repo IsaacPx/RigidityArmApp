@@ -19,7 +19,7 @@ public class BluetoothConnectionService {
 
     private static final String appName = "RIGIDITYARMAPP";
 
-    private static final UUID MY_UUID_INSECURE = UUID.fromString("c419228b-30b0-4f51-9d46-f56348e4c830");
+    private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     private final BluetoothAdapter mBlueToothAdapter;
     Context mContext;
@@ -36,11 +36,16 @@ public class BluetoothConnectionService {
     public BluetoothConnectionService(Context context) {
         mContext = context;
         mBlueToothAdapter = BluetoothAdapter.getDefaultAdapter();
+        start();
     }
 
-    //Listens for incoming connections
+    /**
+     * This thread runs while listening for incoming connections. It behaves
+     * like a server-side client. It runs until a connection is accepted
+     * (or until cancelled)
+     */
     private class AcceptThread extends Thread {
-        // Local server socket
+        // The Local server socket
         private final BluetoothServerSocket mmServerSocket;
 
         public AcceptThread() {
@@ -201,7 +206,12 @@ public class BluetoothConnectionService {
             OutputStream tmpOut = null;
 
             //dismiss the progressdialog when connection is established
-            mProgressDialog.dismiss();
+            try {
+                mProgressDialog.dismiss();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+
 
             try {
                 tmpIn = mmSocket.getInputStream();

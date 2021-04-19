@@ -1,86 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btnONOFF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ON/OFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
 
-    <Button
-        android:id="@+id/btnDiscoverable_on_off"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="btnEnableDisable_Discoverable"
-        android:text="Enable Discoverable"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFindUnpairedDevices"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnFindUnpairedDevices" />
-
-    <Button
-        android:id="@+id/btnFindUnpairedDevices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Discover"
-        android:onClick="btnDiscover"
-        app:layout_constraintBottom_toBottomOf="@+id/btnONOFF"
-        app:layout_constraintEnd_toStartOf="@+id/btnDiscoverable_on_off"
-        app:layout_constraintStart_toEndOf="@+id/btnONOFF"
-        app:layout_constraintTop_toTopOf="@+id/btnONOFF" />
-
-    <ListView
-        android:id="@+id/lvNewDevices"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/btnFindUnpairedDevices"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
-    <Button
-        android:id="@+id/btnStartConnection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Connection"
-        app:layout_constraintBottom_toTopOf="@+id/lvNewDevices"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnONOFF"
-        app:layout_constraintTop_toBottomOf="@+id/btnONOFF" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Text Here"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btnSend"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvNewDevices" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvNewDevices"
-        app:layout_constraintVertical_bias="0.25" />
+            <Button
+                android:id="@+id/btnONOFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/on_off"
+                android:backgroundTint="#80800000"
+                tools:targetApi="lollipop">
+            </Button>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btnDiscoverable_on_off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnONOFF"
+                android:onClick="btnEnableDisable_Discoverable"
+                android:text="@string/enable_discoverable"
+                android:backgroundTint="#80800000"
+                tools:targetApi="lollipop" />
+            <Button
+                android:id="@+id/btnFindUnpairedDevices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnONOFF"
+                android:layout_toRightOf="@+id/btnDiscoverable_on_off"
+                android:text="@string/discover"
+                android:onClick="btnDiscover"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop"
+                android:layout_toEndOf="@+id/btnDiscoverable_on_off" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ListView
+                android:id="@+id/lvNewDevices"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+               />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/btnStartConnection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/start_connection"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_0"
+                android:layout_below="@+id/btnStartConnection"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_1"
+                android:layout_toRightOf="@id/btnlevel0"
+                android:layout_below="@+id/btnStartConnection"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop"
+                android:layout_toEndOf="@id/btnlevel0" />
+
+            <Button
+                android:id="@+id/btnlevel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_2"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:layout_below="@+id/btnStartConnection"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop"
+                android:layout_toEndOf="@id/btnlevel1" />
+
+            <Button
+                android:id="@+id/btnlevel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_3"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:layout_below="@+id/btnStartConnection"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop"
+                android:layout_toEndOf="@id/btnlevel2" />
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/view_pager"/>
+
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider"
+                android:layout_below="@+id/btnlevel1"
+                android:valueFrom="0.0"
+                android:valueTo="2"
+                android:stepSize="1"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_below="@+id/slider"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send"
+                android:backgroundTint="#80000098"
+                tools:targetApi="lollipop" />
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

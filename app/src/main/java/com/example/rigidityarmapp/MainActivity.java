@@ -1,5 +1,6 @@
 package com.example.rigidityarmapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -17,6 +18,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.google.android.material.slider.Slider;
+import com.google.android.material.tabs.TabLayout;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -50,29 +54,47 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     ListView lvNewDevices;
 
+    TabLayout tabLayout;
+
+    Slider slider;
+
+    int val = 0;
+
+    int offset = 0;
+
+    String finalValue;
+
+    Button btnlevel1;
+    Button btnlevel2;
+    Button btnlevel3;
+    Button btnlevel0;
+
+
+
+
     // Create a BroadcastReceiver for ACTION_FOUND
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        // When discovery finds a device
-        if (action.equals(mBluetoothAdapter.ACTION_STATE_CHANGED)) {
-            final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, mBluetoothAdapter.ERROR);
+            String action = intent.getAction();
+            // When discovery finds a device
+            if (action.equals(mBluetoothAdapter.ACTION_STATE_CHANGED)) {
+                final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, mBluetoothAdapter.ERROR);
 
-            switch (state) {
-                case BluetoothAdapter.STATE_OFF:
-                    Log.d(TAG, "onReceive: STATE OFF");
-                    break;
-                case BluetoothAdapter.STATE_TURNING_OFF:
-                    Log.d(TAG, "mBroadcastReceiver1: STATE TURNING OFF");
-                    break;
-                case BluetoothAdapter.STATE_ON:
-                    Log.d(TAG, "mBroadcastReceiver1: STATE ON");
-                    break;
-                case BluetoothAdapter.STATE_TURNING_ON:
-                    Log.d(TAG, "mBroadcastReceiver1: STATE TURING ON");
-                    break;
+                switch (state) {
+                    case BluetoothAdapter.STATE_OFF:
+                        Log.d(TAG, "onReceive: STATE OFF");
+                        break;
+                    case BluetoothAdapter.STATE_TURNING_OFF:
+                        Log.d(TAG, "mBroadcastReceiver1: STATE TURNING OFF");
+                        break;
+                    case BluetoothAdapter.STATE_ON:
+                        Log.d(TAG, "mBroadcastReceiver1: STATE ON");
+                        break;
+                    case BluetoothAdapter.STATE_TURNING_ON:
+                        Log.d(TAG, "mBroadcastReceiver1: STATE TURING ON");
+                        break;
+                }
             }
-        }
         }
     };
 
@@ -182,7 +204,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         btnStartConnection = (Button) findViewById(R.id.btnStartConnection);
         btnSend = (Button) findViewById(R.id.btnSend);
-        etSend = (EditText) findViewById(R.id.editText);
 
         //Broadcasts when bond state changes (ie:pairing)
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
@@ -191,6 +212,53 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         lvNewDevices.setOnItemClickListener(MainActivity.this);
+
+        slider = (Slider) findViewById(R.id.slider);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        slider.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                val = (int) value;
+            }
+        });
+
+        btnlevel0 = (Button) findViewById(R.id.btnlevel0);
+
+        btnlevel1 = (Button) findViewById(R.id.btnlevel1);
+
+        btnlevel2 = (Button) findViewById(R.id.btnlevel2);
+
+        btnlevel3 = (Button) findViewById(R.id.btnlevel3);
+
+        btnlevel0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                offset = 0;
+            }
+        });
+
+        btnlevel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                offset = 3;
+            }
+        });
+
+        btnlevel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                offset = 6;
+            }
+        });
+
+        btnlevel3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                offset = 9;
+            }
+        });
 
         btnONOFF.setOnClickListener(v -> {
             Log.d(TAG, "onClick: enabling/disabling bluetooth.");
@@ -213,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finalValue = String.valueOf((char)(val + offset + 97));
                 byte[] bytes = etSend.getText().toString().getBytes(Charset.defaultCharset());
                 mBluetoothConnection.write(bytes);
             }
@@ -318,24 +387,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-        //first cancel discovery because it's very memory intensive.
-        mBluetoothAdapter.cancelDiscovery();
+                //first cancel discovery because it's very memory intensive.
+                mBluetoothAdapter.cancelDiscovery();
 
-        Log.d(TAG, "onItemClick: You Clicked on a device.");
-        String deviceName = mBTDevices.get(i).getName();
-        String deviceAddress = mBTDevices.get(i).getAddress();
+                Log.d(TAG, "onItemClick: You Clicked on a device.");
+                String deviceName = mBTDevices.get(i).getName();
+                String deviceAddress = mBTDevices.get(i).getAddress();
 
-        Log.d(TAG, "onItemClick: deviceName = " + deviceName);
-        Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
+                Log.d(TAG, "onItemClick: deviceName = " + deviceName);
+                Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
 
-        //create the bond.
-        //NOTE: Requires API 17+? I think this is JellyBean
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            Log.d(TAG, "Trying to pair with " + deviceName);
-            mBTDevices.get(i).createBond();
+                //create the bond.
+                //NOTE: Requires API 17+? I think this is JellyBean
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                    Log.d(TAG, "Trying to pair with " + deviceName);
+                    mBTDevices.get(i).createBond();
 
-            mBTDevice = mBTDevices.get(i);
-            mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
+                    mBTDevice = mBTDevices.get(i);
+                    mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
         }
     }
 }

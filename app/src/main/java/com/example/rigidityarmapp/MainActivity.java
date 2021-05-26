@@ -2,6 +2,7 @@ package com.example.rigidityarmapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Button btnlevel2;
     Button btnlevel3;
     Button btnlevel0;
+
+    Button btnStudent;
 
 
 
@@ -217,6 +220,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
+        btnStudent = findViewById(R.id.btnStudent);
+
         slider.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
@@ -269,6 +274,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 startConnection();
+            }
+        });
+
+        btnStudent.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
+                fr.replace(R.id.mainID,new student());
+                fr.commit();
             }
         });
 

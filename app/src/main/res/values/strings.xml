@@ -11,4 +11,7 @@
     <string name="on_off">ON/OFF</string>
     <string name="enable_discoverable">Enable Discoverable</string>
     <string name="level_0">level 0</string>
+    <string name="back"><![CDATA[< BACK]]></string>
+    <string name="studentMode">Student Mode</string>
+    <string name="instracorMode">Instructor Mode</string>
 </resources>

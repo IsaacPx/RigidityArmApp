@@ -3,10 +3,12 @@ package com.example.rigidityarmapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,21 @@ public class Instructor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructor, container, false);
+
+        if (container != null) {
+            container.removeAllViews();
+        }
+        View root = inflater.inflate(R.layout.fragment_instructor, container, false);
+        Button backIns = root.findViewById(R.id.btnBackIns);
+        backIns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
+                fr.replace(R.id.selectFrame,new InSelect());
+                fr.commit();
+            }
+        });
+
+        return root;
     }
 }

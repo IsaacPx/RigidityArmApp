@@ -8,9 +8,9 @@
     android:id="@+id/mainID">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
         android:layout_gravity="top"
         android:src="@drawable/background"
         />
@@ -23,15 +23,15 @@
         tools:ignore="UselessParent">
 
 
-        <RelativeLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#EEFFFFFF"
-            >
+            android:layout_gravity="center">
 
             <Button
-                android:id="@+id/btnBack"
+                android:id="@+id/btnBackIns"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back"
@@ -39,48 +39,6 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 >
             </Button>
-
-            <Button
-                android:id="@+id/btnONOFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="@string/on_off"
-                app:icon="@drawable/baseline_power_settings_new_black_24dp"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                >
-            </Button>
-
-            <Button
-                android:id="@+id/btnDiscoverable_on_off"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnONOFF"
-                android:onClick="btnEnableDisable_Discoverable"
-                android:text="@string/enable_discoverable"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                app:icon="@drawable/baseline_settings_bluetooth_black_24dp"/>
-            <Button
-                android:id="@+id/btnFindUnpairedDevices"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnONOFF"
-                android:layout_toRightOf="@+id/btnDiscoverable_on_off"
-                android:text="@string/discover"
-                android:onClick="btnDiscover"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                app:icon="@drawable/baseline_sensors_black_24dp"
-                android:layout_toEndOf="@+id/btnDiscoverable_on_off" />
-
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
             <ListView
                 android:id="@+id/lvNewDevices"
@@ -96,15 +54,7 @@
             android:orientation="horizontal"
             android:padding="20dp">
 
-            <Button
-                android:id="@+id/btnStartConnection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#80000098"
-                android:text="@string/start_connection"
-                app:icon="@drawable/baseline_sensors_black_24dp"
-                tools:targetApi="lollipop" />
+
 
             <Button
                 android:id="@+id/btnlevel0"
@@ -112,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnStartConnection"
                 android:backgroundTint="#80000098"
-                android:text="@string/level_0"
+                android:text="@string/UPDRS0"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -123,7 +73,7 @@
                 android:layout_toEndOf="@id/btnlevel0"
                 android:layout_toRightOf="@id/btnlevel0"
                 android:backgroundTint="#80000098"
-                android:text="@string/level_1"
+                android:text="@string/UPDRS1"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -134,7 +84,7 @@
                 android:layout_toEndOf="@id/btnlevel1"
                 android:layout_toRightOf="@id/btnlevel2"
                 android:backgroundTint="#80000098"
-                android:text="@string/level_2"
+                android:text="@string/UPDRS2"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -145,7 +95,7 @@
                 android:layout_toEndOf="@id/btnlevel2"
                 android:layout_toRightOf="@id/btnlevel2"
                 android:backgroundTint="#80000098"
-                android:text="@string/level_3"
+                android:text="@string/UPDRS3"
                 tools:targetApi="lollipop" />
 
 
@@ -155,21 +105,47 @@
                 android:layout_height="match_parent" />
 
 
-            <com.google.android.material.slider.Slider
-                android:id="@+id/slider"
-                android:layout_width="match_parent"
+
+
+            <Button
+                android:id="@+id/btn_sd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnlevel0"
+
+                android:backgroundTint="#80000098"
+                android:text="@string/_1sd"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnAvg"
+                android:layout_width="191dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnlevel1"
-                android:stepSize="1"
-                android:valueFrom="0.0"
-                android:valueTo="2" />
+                android:layout_gravity=""
+                android:layout_toEndOf="@id/btn_sd"
+                android:layout_toRightOf="@id/btn_sd"
+                android:backgroundTint="#80000098"
+                android:text="@string/AVG"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btn1SD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnlevel1"
+                android:layout_toEndOf="@id/btnAvg"
+                android:backgroundTint="#80000098"
+                android:text="@string/_sd"
+                tools:targetApi="lollipop"
+                android:layout_toRightOf="@id/btnAvg" />
 
             <Button
                 android:id="@+id/btnSend"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/slider"
+                android:layout_below="@+id/btn_sd"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="#80000098"
                 android:text="@string/send"
@@ -177,17 +153,7 @@
                 tools:targetApi="lollipop" />
 
 
-            <Button
-                android:id="@+id/btnStudent"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnSend"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#FF5722"
-                android:text="@string/studentMode"
-                app:icon="@drawable/ic_action_friends"
-                tools:targetApi="lollipop" />
+
 
 
         </RelativeLayout>

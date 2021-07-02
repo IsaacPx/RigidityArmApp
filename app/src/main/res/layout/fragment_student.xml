@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/studentID"
-        tools:ignore="UselessParent">
+        tools:ignore="UselessParent"/>
 
 
     <ImageView
@@ -47,41 +47,6 @@
                 >
             </Button>
 
-            <Button
-                android:id="@+id/btnONOFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="@string/on_off"
-                app:icon="@drawable/baseline_power_settings_new_black_24dp"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                >
-            </Button>
-
-            <Button
-                android:id="@+id/btnDiscoverable_on_off"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnONOFF"
-                android:onClick="btnEnableDisable_Discoverable"
-                android:text="@string/enable_discoverable"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                app:icon="@drawable/baseline_settings_bluetooth_black_24dp"/>
-            <Button
-                android:id="@+id/btnFindUnpairedDevices"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnONOFF"
-                android:layout_toRightOf="@+id/btnDiscoverable_on_off"
-                android:text="@string/discover"
-                android:onClick="btnDiscover"
-                android:backgroundTint="#FF5722"
-                tools:targetApi="lollipop"
-                app:icon="@drawable/baseline_sensors_black_24dp"
-                android:layout_toEndOf="@+id/btnDiscoverable_on_off" />
-
         </RelativeLayout>
 
         <LinearLayout
@@ -106,16 +71,6 @@
 
             android:padding="20dp">
 
-            <Button
-                android:id="@+id/btnStartConnection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#80000098"
-                android:text="@string/start_connection"
-                app:icon="@drawable/baseline_sensors_black_24dp"
-                tools:targetApi="lollipop" />
-
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
@@ -124,30 +79,7 @@
 
 
 
-            <Button
-                android:id="@+id/btnSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnStartConnection"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#80000098"
-                android:text="@string/send"
-                tools:targetApi="lollipop"
-                style="@style/Widget.MaterialComponents.Button"
-                app:icon="@drawable/baseline_send_black_24dp"/>
 
-
-            <Button
-                android:id="@+id/btnStudent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnSend"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#FF5722"
-                android:text="@string/instracorMode"
-                tools:targetApi="lollipop"
-                style="@style/Widget.MaterialComponents.Button"
-                app:icon="@drawable/ic_action_friends"/>
 
 
         </RelativeLayout>

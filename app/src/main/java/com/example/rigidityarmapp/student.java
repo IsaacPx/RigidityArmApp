@@ -69,7 +69,7 @@ public class student extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.studentID,new MainActivity());
+                fr.replace(R.id.studentID, new InSelect());
                 fr.commit();
             }
         });

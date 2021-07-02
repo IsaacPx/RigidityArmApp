@@ -220,8 +220,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        btnStudent = findViewById(R.id.btnStudent);
-
         slider.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
@@ -277,13 +275,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        btnStudent.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.mainID,new student());
-                fr.commit();
-            }
-        });
 
         /**
          * When you click "Send" it will grab text from the editText box and turn

@@ -60,8 +60,6 @@ public class main_screen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
         if (container != null) {
             container.removeAllViews();
         }
@@ -71,7 +69,7 @@ public class main_screen extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.mainID, new InSelect());
+                fr.replace(R.id.mainID, new Instructor());
                 fr.commit();
             }
         });

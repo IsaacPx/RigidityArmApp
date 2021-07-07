@@ -27,7 +27,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
     private static final String TAG = "MainActivity";
 
     BluetoothAdapter mBluetoothAdapter;
@@ -72,9 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     Button btnStudent;
 
-
-
-
+/*
     // Create a BroadcastReceiver for ACTION_FOUND
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -101,10 +100,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     };
 
-    /**
-     * Broadcast Receiver for changes made to bluetooth states such as:
-     * 1) Discoverability mode on/off or expire
-     */
+     // Broadcast Receiver for changes made to bluetooth states such as:
+     // 1) Discoverability mode on/off or expire
+
     private final BroadcastReceiver mBroadcastReceiver2 = new BroadcastReceiver() {
 
         @Override
@@ -138,10 +136,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     };
 
-    /**
-     * Broadcast Receiver for listing devices that are not yet paired
-     * - Executed by btnDiscover() method
-     */
+
+     // Broadcast Receiver for listing devices that are not yet paired
+     //- Executed by btnDiscover() method
+
     private BroadcastReceiver mBroadcastReceiver3 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -184,15 +182,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
     };
-
+*/
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
         super.onDestroy();
+        /*
         unregisterReceiver(mBroadcastReceiver1);
         unregisterReceiver(mBroadcastReceiver2);
         unregisterReceiver(mBroadcastReceiver3);
         unregisterReceiver(mBroadcastReceiver4);
+        */
+
         //mBluetoothAdapter.cancelDiscovery();
     }
 
@@ -200,6 +201,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FragmentTransaction fr = getSupportFragmentManager().beginTransaction();
+        fr.replace(R.id.flfragment,new main_screen());
+        fr.commit();
+        /*
         Button btnONOFF = (Button) findViewById(R.id.btnONOFF);
         btnEnableDisable_Discoverable = (Button) findViewById(R.id.btnDiscoverable_on_off);
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
@@ -219,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         slider = (Slider) findViewById(R.id.slider);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
+
 
         slider.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
@@ -276,12 +282,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
 
-        /**
-         * When you click "Send" it will grab text from the editText box and turn
-         * it into a byte array to send to bluetooth device to be read.
-         * Should change "etSend" here into the value that we are storing that's
-         * linked to the current conditions (i.e. UDPRS level, and slider position).
-         */
+
+         // When you click "Send" it will grab text from the editText box and turn
+         // it into a byte array to send to bluetooth device to be read.
+         // Should change "etSend" here into the value that we are storing that's
+         // linked to the current conditions (i.e. UDPRS level, and slider position).
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -290,19 +296,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 mBluetoothConnection.write(bytes);
             }
         });
+        */
     }
 
-    /**
-     * create method for starting connection
-     * ***remember the connection will fail and app will crash if you haven't paired first
-     */
+    // create method for starting connection
+    // remember the connection will fail and app will crash if you haven't paired first
+
+    /*
     public void startConnection() {
         startBTConnection(mBTDevice, MY_UUID_INSECURE);
     }
 
-    /**
-     * starting chat service method
-     */
+     // starting chat service method
+
     public void startBTConnection(BluetoothDevice device, UUID uuid) {
         Log.d(TAG, "startBTConnection: Initializing RFCOM Bluetooth Connection.");
 
@@ -368,14 +374,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    /**
-     * This method is required for all devices running API 23+
-     * Android must programmatically check the permissions for bluetooth. Putting the proper permissions
-     * in the manifest is not enough.
-     *
-     * NOTE: This will only execute on versions > LOLLIPOP because it is not needed otherwise.
-     * Don't worry about error here vvv
-     */
+
+     // This method is required for all devices running API 23+
+     // Android must programmatically check the permissions for bluetooth. Putting the proper permissions
+     // in the manifest is not enough.
+     //
+     // NOTE: This will only execute on versions > LOLLIPOP because it is not needed otherwise.
+     // Don't worry about error here vvv
+
     private void checkBTPermissions() {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
@@ -411,4 +417,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
         }
     }
+    */
 }

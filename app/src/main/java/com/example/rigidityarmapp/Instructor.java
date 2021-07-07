@@ -71,7 +71,7 @@ public class Instructor extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.selectFrame,new InSelect());
+                fr.replace(R.id.mainID,new main_screen());
                 fr.commit();
             }
         });

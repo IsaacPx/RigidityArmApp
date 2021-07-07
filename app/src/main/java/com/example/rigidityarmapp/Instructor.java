@@ -66,12 +66,12 @@ public class Instructor extends Fragment {
             container.removeAllViews();
         }
         View root = inflater.inflate(R.layout.fragment_instructor, container, false);
-        Button backIns = root.findViewById(R.id.btnBackIns);
-        backIns.setOnClickListener(new View.OnClickListener() {
+        Button backBackIns = root.findViewById(R.id.btnBackIns);
+        backBackIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.mainID,new main_screen());
+                fr.replace(R.id.Instructor, new MainScreen());
                 fr.commit();
             }
         });

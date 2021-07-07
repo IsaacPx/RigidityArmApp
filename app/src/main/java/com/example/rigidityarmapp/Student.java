@@ -12,10 +12,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link InSelect#newInstance} factory method to
+ * Use the {@link Student#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InSelect extends Fragment {
+public class Student extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class InSelect extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public InSelect() {
+    public Student() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class InSelect extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InSelect.
+     * @return A new instance of fragment student.
      */
     // TODO: Rename and change types and number of parameters
-    public static InSelect newInstance(String param1, String param2) {
-        InSelect fragment = new InSelect();
+    public static Student newInstance(String param1, String param2) {
+        Student fragment = new Student();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,28 +60,22 @@ public class InSelect extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
         if (container != null) {
             container.removeAllViews();
         }
-        View root = inflater.inflate(R.layout.fragment_in_select, container, false);
-        Button btnBackSelect = root.findViewById(R.id.btnBackIns);
-        Button leadPipe = root.findViewById(R.id.btnRigidity1);
-        btnBackSelect.setOnClickListener(new View.OnClickListener() {
+        View root = inflater.inflate(R.layout.fragment_student, container, false);
+        Button btnBackStu = root.findViewById(R.id.btnBackStu);
+        btnBackStu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.selectFrame,new main_screen());
+                fr.replace(R.id.Student, new MainScreen());
                 fr.commit();
             }
         });
-        leadPipe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.selectFrame,new Instructor());
-                fr.commit();
-            }
-        });
+
         return root;
     }
 }

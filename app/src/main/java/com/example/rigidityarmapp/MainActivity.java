@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FragmentTransaction fr = getSupportFragmentManager().beginTransaction();
-        fr.replace(R.id.flfragment,new main_screen());
+        fr.replace(R.id.mainID, new MainScreen());
         fr.commit();
         /*
         Button btnONOFF = (Button) findViewById(R.id.btnONOFF);

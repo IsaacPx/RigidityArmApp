@@ -1,14 +1,21 @@
 package com.example.rigidityarmapp;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +28,13 @@ public class MainScreen extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = "MainScreen";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
 
     public MainScreen() {
         // Required empty public constructor
@@ -82,6 +92,40 @@ public class MainScreen extends Fragment {
                 fr.commit();
             }
         });
+
+        MainActivity mainAct = ((MainActivity) getActivity());
+        Button btnONOFF = root.findViewById(R.id.btnONOFF);
+        Button btnEnableDisable_Discoverable = root.findViewById(R.id.btnDiscoverable_on_off);
+        ListView lvNewDevices = root.findViewById(R.id.lvNewDevices);
+        ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
+
+        Button btnStartConnection = root.findViewById(R.id.btnStartConnection);
+
+        //Broadcasts when bond state changes (ie:pairing)
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+
+        mainAct.registerReceiver(mainAct.mBroadcastReceiver4, filter);
+
+        mainAct.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        //Need to fix this
+        //lvNewDevices.setOnItemClickListener(mainAct.this);
+
+
+        btnONOFF.setOnClickListener(v -> {
+            Log.d(TAG, "onClick: enabling/disabling bluetooth.");
+            mainAct.enableDisableBT();
+        });
+
+/*
+        btnStartConnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainAct.startConnection();
+            }
+        });
+
+*/
         return root;
     }
 }

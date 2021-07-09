@@ -73,9 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnStudent;
 
-/*
     // Create a BroadcastReceiver for ACTION_FOUND
-    private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
+    final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             // When discovery finds a device
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
      // Broadcast Receiver for changes made to bluetooth states such as:
      // 1) Discoverability mode on/off or expire
 
-    private final BroadcastReceiver mBroadcastReceiver2 = new BroadcastReceiver() {
+    final BroadcastReceiver mBroadcastReceiver2 = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
      // Broadcast Receiver for listing devices that are not yet paired
      //- Executed by btnDiscover() method
 
-    private BroadcastReceiver mBroadcastReceiver3 = new BroadcastReceiver() {
+    BroadcastReceiver mBroadcastReceiver3 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
@@ -156,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
+    final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
@@ -182,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-*/
+
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
@@ -302,7 +301,6 @@ public class MainActivity extends AppCompatActivity {
     // create method for starting connection
     // remember the connection will fail and app will crash if you haven't paired first
 
-    /*
     public void startConnection() {
         startBTConnection(mBTDevice, MY_UUID_INSECURE);
     }
@@ -394,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
         }
     }
-
+/*
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 //first cancel discovery because it's very memory intensive.
@@ -417,5 +415,5 @@ public class MainActivity extends AppCompatActivity {
                     mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
         }
     }
-    */
+*/
 }

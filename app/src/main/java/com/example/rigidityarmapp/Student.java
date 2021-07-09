@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,7 +76,13 @@ public class Student extends Fragment {
                 fr.commit();
             }
         });
-
+        MainActivity mainAct = ((MainActivity) getActivity());
+        int yo = 4;
+        mainAct.offset = yo;
+        yo++;
+        int xo = mainAct.offset;
+        TextView textStu = root.findViewById(R.id.textStu);
+        textStu.setText("" + xo);
         return root;
     }
 }

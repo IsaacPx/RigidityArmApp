@@ -5,13 +5,14 @@
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#13294B"
     android:id="@+id/mainID">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
-        android:layout_gravity="top"
+        android:layout_gravity="bottom"
         android:src="@drawable/background"
         />
 
@@ -35,33 +36,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back"
-                android:textColor="#FF5722"
+                android:textColor="#E84A27"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 >
             </Button>
 
-            <ListView
-                android:id="@+id/lvNewDevices"
-                android:layout_width="match_parent"
-                android:layout_height="294dp" />
 
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:background="#EEFFFFFF"
+            android:layout_height="wrap_content"
+            android:background="#13294B"
             android:orientation="horizontal"
             android:padding="20dp">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/line1"
+                android:background="#E84A27" />
+
+            <TextView
+                android:id="@+id/leadpipeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:textColor="#E84A27"
+                android:text="@string/rigidity_leadpipe"
+                android:layout_below="@+id/line1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <Button
                 android:id="@+id/btnlevel0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnStartConnection"
-                android:backgroundTint="#80000098"
+                android:layout_below="@+id/leadpipeText"
+                android:backgroundTint="#E84A27"
                 android:text="@string/UPDRS0"
                 tools:targetApi="lollipop" />
 
@@ -69,10 +85,10 @@
                 android:id="@+id/btnlevel1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnStartConnection"
+                android:layout_below="@+id/leadpipeText"
                 android:layout_toEndOf="@id/btnlevel0"
                 android:layout_toRightOf="@id/btnlevel0"
-                android:backgroundTint="#80000098"
+                android:backgroundTint="#E84A27"
                 android:text="@string/UPDRS1"
                 tools:targetApi="lollipop" />
 
@@ -80,10 +96,10 @@
                 android:id="@+id/btnlevel2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnStartConnection"
+                android:layout_below="@+id/leadpipeText"
                 android:layout_toEndOf="@id/btnlevel1"
                 android:layout_toRightOf="@id/btnlevel2"
-                android:backgroundTint="#80000098"
+                android:backgroundTint="#E84A27"
                 android:text="@string/UPDRS2"
                 tools:targetApi="lollipop" />
 
@@ -91,68 +107,174 @@
                 android:id="@+id/btnlevel3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnStartConnection"
+                android:layout_below="@+id/leadpipeText"
                 android:layout_toEndOf="@id/btnlevel2"
                 android:layout_toRightOf="@id/btnlevel2"
-                android:backgroundTint="#80000098"
+                android:backgroundTint="#E84A27"
+                android:text="@string/UPDRS3"
+                tools:targetApi="lollipop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/line2"
+                android:layout_marginTop="15dp"
+                android:background="#E84A27"
+                android:layout_below="@id/btnlevel1"
+                />
+
+
+            <TextView
+                android:id="@+id/cogWheelText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:textColor="#E84A27"
+                android:text="@string/rigidity_cogwheel"
+                android:layout_below="@+id/line2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Button
+                android:id="@+id/btnlevel10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cogWheelText"
+                android:backgroundTint="#E84A27"
+                android:text="@string/UPDRS0"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cogWheelText"
+                android:layout_toEndOf="@id/btnlevel0"
+                android:layout_toRightOf="@id/btnlevel0"
+                android:backgroundTint="#E84A27"
+                android:text="@string/UPDRS1"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cogWheelText"
+                android:layout_toEndOf="@id/btnlevel1"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:backgroundTint="#E84A27"
+                android:text="@string/UPDRS2"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cogWheelText"
+                android:layout_toEndOf="@id/btnlevel2"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:backgroundTint="#E84A27"
                 android:text="@string/UPDRS3"
                 tools:targetApi="lollipop" />
 
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/view_pager"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="1dp"
+                android:id="@+id/line3"
+                android:layout_marginTop="15dp"
+                android:background="#E84A27"
+                android:layout_below="@id/btnlevel11"
+                />
 
-
-
+            <TextView
+                android:id="@+id/SpasticityText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:padding="10dp"
+                android:textColor="#E84A27"
+                android:text="@string/Spasticity"
+                android:layout_below="@+id/line3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/btn_sd"
+                android:id="@+id/btnlevel20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnlevel0"
-
-                android:backgroundTint="#80000098"
-                android:text="@string/_1sd"
+                android:layout_below="@+id/SpasticityText"
+                android:backgroundTint="#E84A27"
+                android:text="@string/maso0"
                 tools:targetApi="lollipop" />
 
             <Button
-                android:id="@+id/btnAvg"
-                android:layout_width="191dp"
+                android:id="@+id/btnlevel21"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnlevel1"
-                android:layout_gravity=""
-                android:layout_toEndOf="@id/btn_sd"
-                android:layout_toRightOf="@id/btn_sd"
-                android:backgroundTint="#80000098"
-                android:text="@string/AVG"
+                android:layout_below="@+id/SpasticityText"
+                android:layout_toEndOf="@id/btnlevel0"
+                android:layout_toRightOf="@id/btnlevel0"
+                android:backgroundTint="#E84A27"
+                android:text="@string/maso1"
                 tools:targetApi="lollipop" />
 
             <Button
-                android:id="@+id/btn1SD"
+                android:id="@+id/btnlevel22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnlevel1"
-                android:layout_toEndOf="@id/btnAvg"
-                android:backgroundTint="#80000098"
-                android:text="@string/_sd"
-                tools:targetApi="lollipop"
-                android:layout_toRightOf="@id/btnAvg" />
+                android:layout_below="@+id/SpasticityText"
+                android:layout_toEndOf="@id/btnlevel1"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:backgroundTint="#E84A27"
+                android:text="@string/maso2"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnlevel23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/SpasticityText"
+                android:layout_toEndOf="@id/btnlevel2"
+                android:layout_toRightOf="@id/btnlevel2"
+                android:backgroundTint="#E84A27"
+                android:text="@string/maso3"
+                tools:targetApi="lollipop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/line4"
+                android:layout_marginTop="15dp"
+                android:background="#E84A27"
+                android:layout_below="@id/btnlevel21"
+                />
 
             <Button
                 android:id="@+id/btnSend"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_sd"
+                android:layout_below="@+id/line4"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="#80000098"
+                android:backgroundTint="#E84A27"
+                android:layout_marginTop="20dp"
                 android:text="@string/send"
                 app:icon="@drawable/baseline_send_black_24dp"
                 tools:targetApi="lollipop" />
 
 
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="wrap_content"
+                android:layout_height="294dp" />
 
 
 

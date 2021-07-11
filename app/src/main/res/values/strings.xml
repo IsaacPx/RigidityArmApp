@@ -15,8 +15,8 @@
     <string name="studentMode">Student Mode</string>
     <string name="instracorMode">Instructor Mode</string>
     <string name="rigidity_leadpipe">Rigidity Leadpipe</string>
-    <string name="rigidity_cogwheel">Rigidity cogwheel</string>
-    <string name="Spasticity">spasticity</string>
+    <string name="rigidity_cogwheel">Rigidity Cogwheel</string>
+    <string name="Spasticity">Spasticity</string>
     <string name="UPDRS0">UPDRS0</string>
     <string name="UPDRS1">UPDRS1</string>
     <string name="UPDRS2">UPDRS2</string>
@@ -24,4 +24,9 @@
     <string name="_1sd">-1SD</string>
     <string name="_sd">+1SD</string>
     <string name="AVG">Average</string>
+    <string name="maso3">MASO3</string>
+    <string name="maso2">MASO 2</string>
+    <string name="maso2">MASO 2</string>
+    <string name="maso1">MASO 1</string>
+    <string name="maso0">MASO 0</string>
 </resources>

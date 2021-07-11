@@ -16,8 +16,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:layout_gravity="top"
+        android:layout_gravity="bottom"
         android:src="@drawable/background"
         />
 
@@ -133,21 +132,19 @@
                 android:backgroundTint="#80000098"
                 android:text="@string/send"
                 tools:targetApi="lollipop"
-                style="@style/Widget.MaterialComponents.Button"
-                app:icon="@drawable/baseline_send_black_24dp"/>
+                style="@style/Widget.MaterialComponents.Button" />
 
 
-            <Button
-                android:id="@+id/btnStudent"
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/text"
                 android:layout_below="@+id/btnSend"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="#FF5722"
-                android:text="@string/instracorMode"
-                tools:targetApi="lollipop"
-                style="@style/Widget.MaterialComponents.Button"
-                app:icon="@drawable/ic_action_friends"/>
+                android:backgroundTint="@color/purple_700"
+                tools:ignore="UnknownId" />
+
+
 
 
         </RelativeLayout>

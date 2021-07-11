@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/selectFrame"
+    android:background="#13294B"
     tools:context=".InSelect">
 
     <ImageView
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+
         android:layout_gravity="top">
 
         <Button
@@ -38,7 +40,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:background="#EEFFFFFF"
         >
 
 

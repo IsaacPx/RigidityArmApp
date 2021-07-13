@@ -75,7 +75,16 @@
         </LinearLayout>
 
 
-
+        <Button
+            android:id="@+id/btnStartConnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#FF5722"
+            android:text="@string/start_connection"
+            android:layout_gravity="center"
+            tools:targetApi="lollipop"
+            app:icon="@drawable/baseline_sensors_black_24dp" />
 
 
         <Button

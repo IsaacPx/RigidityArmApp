@@ -115,7 +115,6 @@ public class MainScreen extends Fragment {
             mainAct.enableDisableBT();
         });
 
-/*
         btnStartConnection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,7 +122,6 @@ public class MainScreen extends Fragment {
             }
         });
 
-*/
         return root;
     }
 }

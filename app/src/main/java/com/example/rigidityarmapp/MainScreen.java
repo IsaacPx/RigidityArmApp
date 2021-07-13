@@ -96,14 +96,13 @@ public class MainScreen extends Fragment {
         MainActivity mainAct = ((MainActivity) getActivity());
         Button btnONOFF = root.findViewById(R.id.btnONOFF);
         Button btnEnableDisable_Discoverable = root.findViewById(R.id.btnDiscoverable_on_off);
-        ListView lvNewDevices = root.findViewById(R.id.lvNewDevices);
-        ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
+        mainAct.lvNewDevices = root.findViewById(R.id.lvNewDevices);
+        mainAct.mBTDevices = new ArrayList<>();
 
         Button btnStartConnection = root.findViewById(R.id.btnStartConnection);
 
         //Broadcasts when bond state changes (ie:pairing)
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-
         mainAct.registerReceiver(mainAct.mBroadcastReceiver4, filter);
 
         mainAct.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();

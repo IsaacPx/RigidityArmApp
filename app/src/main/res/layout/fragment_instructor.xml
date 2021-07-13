@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:id="@+id/Instructor">
+    android:id="@+id/mainID">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -39,6 +39,11 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 >
             </Button>
+
+            <ListView
+                android:id="@+id/lvNewDevices"
+                android:layout_width="match_parent"
+                android:layout_height="294dp" />
 
         </LinearLayout>
 

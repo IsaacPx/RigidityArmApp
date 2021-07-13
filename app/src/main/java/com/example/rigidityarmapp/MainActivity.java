@@ -27,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 //public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
     private static final String TAG = "MainActivity";
 
@@ -392,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
         }
     }
-/*
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 //first cancel discovery because it's very memory intensive.
@@ -415,5 +415,5 @@ public class MainActivity extends AppCompatActivity {
                     mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
         }
     }
-*/
+
 }

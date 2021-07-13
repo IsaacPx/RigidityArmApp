@@ -108,8 +108,7 @@ public class MainScreen extends Fragment {
         mainAct.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         //Need to fix this
-        //lvNewDevices.setOnItemClickListener(mainAct.this);
-
+        mainAct.lvNewDevices.setOnItemClickListener(mainAct);
 
         btnONOFF.setOnClickListener(v -> {
             Log.d(TAG, "onClick: enabling/disabling bluetooth.");

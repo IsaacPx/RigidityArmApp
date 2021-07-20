@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.nio.charset.Charset;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Instructor#newInstance} factory method to
@@ -25,6 +27,25 @@ public class Instructor extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // Variables of all modes + levels condition
+    // Leadpipe Rigidity (1st)
+    int L0 = 0;
+    int L1 = 1;
+    int L2 = 2;
+    int L3 = 3;
+    int L_end = L3 + 1;
+    // Cogwheel Rigidity (2nd)
+    int C0 = 0 + L_end;
+    int C1 = 1 + L_end;
+    int C2 = 2 + L_end;
+    int C3 = 3 + L_end;
+    int C_end = C3 + 1;
+    // Spasticity (3rd)
+    int S0 = 0 + C_end;
+    int S1 = 1 + C_end;
+    int S2 = 2 + C_end;
+    int S3 = 3 + C_end;
 
     public Instructor() {
         // Required empty public constructor
@@ -66,8 +87,8 @@ public class Instructor extends Fragment {
             container.removeAllViews();
         }
         View root = inflater.inflate(R.layout.fragment_instructor, container, false);
-        Button backBackIns = root.findViewById(R.id.btnBackIns);
-        backBackIns.setOnClickListener(new View.OnClickListener() {
+        Button btnBackIns = root.findViewById(R.id.btnBackIns);
+        btnBackIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getChildFragmentManager().beginTransaction();
@@ -75,6 +96,38 @@ public class Instructor extends Fragment {
                 fr.commit();
             }
         });
+        MainActivity mainAct = ((MainActivity) getActivity());
+
+        Button btnLevelL0 = root.findViewById(R.id.btnlevel0);
+        Button btnLevelL1 = root.findViewById(R.id.btnlevel1);
+        Button btnLevelL2 = root.findViewById(R.id.btnlevel2);
+        Button btnLevelL3 = root.findViewById(R.id.btnlevel3);
+        btnLevelL0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainAct.send(L0);
+            }
+        });
+        btnLevelL1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainAct.send(L1);
+            }
+        });
+        btnLevelL2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainAct.send(L2);
+            }
+        });
+        btnLevelL3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainAct.send(L3);
+            }
+        });
+
+
 
         return root;
     }

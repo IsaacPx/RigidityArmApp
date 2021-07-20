@@ -17,15 +17,15 @@
     <string name="rigidity_leadpipe">Rigidity Leadpipe</string>
     <string name="rigidity_cogwheel">Rigidity Cogwheel</string>
     <string name="Spasticity">Spasticity</string>
-    <string name="UPDRS0">UPDRS0</string>
-    <string name="UPDRS1">UPDRS1</string>
-    <string name="UPDRS2">UPDRS2</string>
-    <string name="UPDRS3">UPDRS3</string>
+    <string name="UPDRS0">UPDRS 0</string>
+    <string name="UPDRS1">UPDRS 1</string>
+    <string name="UPDRS2">UPDRS 2</string>
+    <string name="UPDRS3">UPDRS 3</string>
     <string name="_1sd">-1SD</string>
     <string name="_sd">+1SD</string>
     <string name="AVG">Average</string>
-    <string name="maso3">MAS3</string>
-    <string name="maso2">MAS2</string>
-    <string name="maso1">MAS1</string>
-    <string name="maso0">MAS0</string>
+    <string name="MAS0">MAS 0</string>
+    <string name="MAS1">MAS 1</string>
+    <string name="MAS2">MAS 2</string>
+    <string name="MAS3">MAS 3</string>
 </resources>

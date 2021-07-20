@@ -214,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/SpasticityText"
                 android:backgroundTint="#E84A27"
-                android:text="@string/maso0"
+                android:text="@string/MAS0"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -225,7 +225,7 @@
                 android:layout_toEndOf="@id/btnlevel0"
                 android:layout_toRightOf="@id/btnlevel0"
                 android:backgroundTint="#E84A27"
-                android:text="@string/maso1"
+                android:text="@string/MAS1"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -236,7 +236,7 @@
                 android:layout_toEndOf="@id/btnlevel1"
                 android:layout_toRightOf="@id/btnlevel2"
                 android:backgroundTint="#E84A27"
-                android:text="@string/maso2"
+                android:text="@string/MAS2"
                 tools:targetApi="lollipop" />
 
             <Button
@@ -247,7 +247,7 @@
                 android:layout_toEndOf="@id/btnlevel2"
                 android:layout_toRightOf="@id/btnlevel2"
                 android:backgroundTint="#E84A27"
-                android:text="@string/maso3"
+                android:text="@string/MAS3"
                 tools:targetApi="lollipop" />
 
             <View

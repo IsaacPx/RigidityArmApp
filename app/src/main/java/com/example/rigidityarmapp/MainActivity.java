@@ -298,6 +298,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         */
     }
 
+    public void send(int condition) {
+        finalValue = String.valueOf((char)(condition + 97));
+        byte[] bytes = finalValue.getBytes(Charset.defaultCharset());
+        mBluetoothConnection.write(bytes);
+    }
+
     // create method for starting connection
     // remember the connection will fail and app will crash if you haven't paired first
 

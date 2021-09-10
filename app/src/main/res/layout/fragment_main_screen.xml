@@ -28,23 +28,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/on_off"
-            app:icon="@drawable/baseline_power_settings_new_black_24dp"
+            app:icon="@drawable/baseline_settings_bluetooth_black_24dp"
             android:backgroundTint="#FF5722"
             tools:targetApi="lollipop"
             >
         </Button>
 
-        <Button
-            android:id="@+id/btnDiscoverable_on_off"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnONOFF"
-            android:onClick="btnEnableDisable_Discoverable"
-            android:text="@string/enable_discoverable"
-            android:layout_gravity="center"
-            android:backgroundTint="#FF5722"
-            tools:targetApi="lollipop"
-            app:icon="@drawable/baseline_settings_bluetooth_black_24dp"/>
         <Button
             android:id="@+id/btnFindUnpairedDevices"
             android:layout_width="wrap_content"

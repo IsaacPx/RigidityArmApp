@@ -95,7 +95,7 @@ public class MainScreen extends Fragment {
 
         MainActivity mainAct = ((MainActivity) getActivity());
         Button btnONOFF = root.findViewById(R.id.btnONOFF);
-        Button btnEnableDisable_Discoverable = root.findViewById(R.id.btnDiscoverable_on_off);
+        //Button btnEnableDisable_Discoverable = root.findViewById(R.id.btnDiscoverable_on_off);
         mainAct.lvNewDevices = root.findViewById(R.id.lvNewDevices);
         mainAct.mBTDevices = new ArrayList<>();
 

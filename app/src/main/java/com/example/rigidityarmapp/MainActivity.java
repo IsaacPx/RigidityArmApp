@@ -66,11 +66,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     String finalValue;
 
-    Button btnlevel1;
-    Button btnlevel2;
-    Button btnlevel3;
-    Button btnlevel0;
-
     Button btnStudent;
 
     // Create a BroadcastReceiver for ACTION_FOUND
@@ -186,14 +181,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
         super.onDestroy();
-        /*
         unregisterReceiver(mBroadcastReceiver1);
         unregisterReceiver(mBroadcastReceiver2);
         unregisterReceiver(mBroadcastReceiver3);
         unregisterReceiver(mBroadcastReceiver4);
-        */
-
-        //mBluetoothAdapter.cancelDiscovery();
+        mBluetoothAdapter.cancelDiscovery();
     }
 
     @Override

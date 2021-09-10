@@ -259,21 +259,6 @@
                 android:layout_below="@id/btnlevel21"
                 />
 
-            <Button
-                android:id="@+id/btnSend"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/line4"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="#E84A27"
-                android:layout_marginTop="20dp"
-                android:text="@string/send"
-                app:icon="@drawable/baseline_send_black_24dp"
-                tools:targetApi="lollipop" />
-
-
-
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="wrap_content"

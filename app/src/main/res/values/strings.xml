@@ -14,8 +14,8 @@
     <string name="back"><![CDATA[< BACK]]></string>
     <string name="studentMode">Student Mode</string>
     <string name="instracorMode">Instructor Mode</string>
-    <string name="rigidity_leadpipe">Rigidity Leadpipe</string>
-    <string name="rigidity_cogwheel">Rigidity Cogwheel</string>
+    <string name="rigidity_leadpipe">Leadpipe Rigidity</string>
+    <string name="rigidity_cogwheel">Cogwheel Rigidity</string>
     <string name="Spasticity">Spasticity</string>
     <string name="UPDRS0">UPDRS 0</string>
     <string name="UPDRS1">UPDRS 1</string>

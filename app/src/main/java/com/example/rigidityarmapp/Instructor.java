@@ -1,5 +1,6 @@
 package com.example.rigidityarmapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -47,7 +48,20 @@ public class Instructor extends Fragment {
     int S2 = 2 + C_end;
     int S3 = 3 + C_end;
 
+    Button currBtn;
 
+    void levelSwitch(Button toSwitchBtn, MainActivity theMainAct, int level) {
+        try {
+            theMainAct.send(level);
+            if (currBtn != null) {
+                currBtn.setBackgroundColor(Color.parseColor("#E84A27"));
+            }
+            currBtn = toSwitchBtn;
+            currBtn.setBackgroundColor(Color.parseColor("#53DD22"));
+        } catch (Exception e) {
+
+        }
+    }
 
     public Instructor() {
         // Required empty public constructor
@@ -100,6 +114,7 @@ public class Instructor extends Fragment {
         });
         MainActivity mainAct = ((MainActivity) getActivity());
 
+        //Leadpipe Rigidity
         Button btnLevelL0 = root.findViewById(R.id.btnlevel0);
         Button btnLevelL1 = root.findViewById(R.id.btnlevel1);
         Button btnLevelL2 = root.findViewById(R.id.btnlevel2);
@@ -107,29 +122,87 @@ public class Instructor extends Fragment {
         btnLevelL0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainAct.send(L0);
+                levelSwitch(btnLevelL0, mainAct, L0);
             }
         });
         btnLevelL1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainAct.send(L1);
+                levelSwitch(btnLevelL1, mainAct, L1);
             }
         });
         btnLevelL2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainAct.send(L2);
+                levelSwitch(btnLevelL2, mainAct, L2);
             }
         });
         btnLevelL3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainAct.send(L3);
+                levelSwitch(btnLevelL3, mainAct, L3);
             }
         });
 
+        //Cogwheel Rigidity
+        Button btnLevelC0 = root.findViewById(R.id.btnlevel10);
+        Button btnLevelC1 = root.findViewById(R.id.btnlevel11);
+        Button btnLevelC2 = root.findViewById(R.id.btnlevel12);
+        Button btnLevelC3 = root.findViewById(R.id.btnlevel13);
+        btnLevelC0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelC0, mainAct, C0);
+            }
+        });
+        btnLevelC1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelC1, mainAct, C1);
+            }
+        });
+        btnLevelC2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelC2, mainAct, C2);
+            }
+        });
+        btnLevelC3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelC3, mainAct, C3);
+            }
+        });
 
+        //Spasticity
+        Button btnLevelS0 = root.findViewById(R.id.btnlevel20);
+        Button btnLevelS1 = root.findViewById(R.id.btnlevel21);
+        Button btnLevelS2 = root.findViewById(R.id.btnlevel22);
+        Button btnLevelS3 = root.findViewById(R.id.btnlevel23);
+        btnLevelS0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelS0, mainAct, S0);
+            }
+        });
+        btnLevelS1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelS1, mainAct, S1);
+            }
+        });
+        btnLevelS2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelS2, mainAct, S2);
+            }
+        });
+        btnLevelS3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levelSwitch(btnLevelS3, mainAct, S3);
+            }
+        });
 
         return root;
     }
